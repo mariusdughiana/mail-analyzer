@@ -59,6 +59,8 @@ public class MailAnalyzerApp {
 
         for (String fileName: dirPath.list(new SuffixFileFilter(".xml"))) {
 
+            System.out.print("Processing file: " + fileName  + " ... ");
+
             String newXmlFile = XmlTransformer.transformXml(sc, dirPath + "/" + fileName);
             SQLContext sqlContext = new SQLContext(sc);
 
@@ -78,6 +80,8 @@ public class MailAnalyzerApp {
                 totalWords.$plus$eq(MailParser.getMessageWordsNo(dirPath.getPath() +"/"+s));
             });
             FileUtils.deleteDirectory(new File(newXmlFile));
+            System.out.print("100%");
+
         }
         printResults(startTime, totalWords, totalMails, counts);
 
