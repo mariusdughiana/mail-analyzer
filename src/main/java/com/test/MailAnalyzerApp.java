@@ -59,7 +59,7 @@ public class MailAnalyzerApp {
 
         for (String fileName: dirPath.list(new SuffixFileFilter(".xml"))) {
 
-            System.out.println("Processing file: " + fileName  + " ... ");
+            System.out.print("Processing file: " + fileName  + " ... ");
 
             String newXmlFile = XmlTransformer.transformXml(sc, dirPath + "/" + fileName);
             SQLContext sqlContext = new SQLContext(sc);
@@ -75,12 +75,13 @@ public class MailAnalyzerApp {
             counts = counts.stream().sorted(new TupleComparatorByVal()).limit(100).collect(Collectors.toList());
 
             JavaRDD<String> mailFiles = XmlTransformer.getContentForTagInMessage(ds, "FilePath", null);
-            mailFiles.foreach((VoidFunction<String>) s -> {
+            mailFiles.filter(fn -> Files.exists(Paths.get(dirPath.getPath(), fn)))
+                     .foreach((VoidFunction<String>) s -> {
                 totalMails.$plus$eq(1);
                 totalWords.$plus$eq(MailParser.getMessageWordsNo(dirPath.getPath() +"/"+s));
             });
             FileUtils.deleteDirectory(new File(newXmlFile));
-            System.out.print("100%");
+            System.out.println("100%");
 
         }
         printResults(startTime, totalWords, totalMails, counts);
