@@ -27,7 +27,9 @@ public class XmlTransformer {
     public static JavaPairRDD<String, Double> countMailReceivers(Dataset ds, String... tags) {
         JavaRDD<String> receivers = getContentForTagInMessage(ds, "SendTo", ",");
         JavaPairRDD<String, Double> pairs = receivers.mapToPair(s -> new Tuple2(s, 1.0));
-        pairs = pairs.union(getContentForTagInMessage(ds, "SendCC", ",").mapToPair(s -> new Tuple2(s, 0.5)));
+        if (containsColumn(ds, "SendCC")) {
+            pairs = pairs.union(getContentForTagInMessage(ds, "SendCC", ",").mapToPair(s -> new Tuple2(s, 0.5)));
+        }
         return pairs.reduceByKey((a, b) -> a + b);
     }
 
@@ -45,5 +47,9 @@ public class XmlTransformer {
                     }
                     return results;
                 }).flatMap((FlatMapFunction) o -> ((Set)o).iterator());
+    }
+
+    private static boolean containsColumn(Dataset ds, String columnName) {
+        return Arrays.asList(ds.columns()).contains(columnName);
     }
  }
