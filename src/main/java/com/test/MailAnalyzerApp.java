@@ -55,7 +55,7 @@ public class MailAnalyzerApp {
         Accumulator<Integer> totalWords = sc.accumulator(0);
         Accumulator<Integer> totalMails = sc.accumulator(0);
 
-        List<Tuple2<String, Double>> counts = new ArrayList<>();
+        JavaPairRDD<String, Double> allReceivers = null;
 
         for (String fileName: dirPath.list(new SuffixFileFilter(".xml"))) {
 
@@ -69,10 +69,12 @@ public class MailAnalyzerApp {
                                    .option("rowTag", "Document")
                                    .load(newXmlFile);
 
-            JavaPairRDD<String, Double> fileCounts = XmlTransformer.countMailReceivers(ds);
-            counts.addAll(fileCounts.takeOrdered(100, new TupleComparatorByVal()));
-
-            counts = counts.stream().sorted(new TupleComparatorByVal()).limit(100).collect(Collectors.toList());
+            JavaPairRDD<String, Double> fileReceivers = XmlTransformer.countMailReceivers(ds);
+            if (allReceivers == null) {
+                allReceivers = fileReceivers;
+            } else {
+                allReceivers = allReceivers.union(fileReceivers).reduceByKey((v1, v2) -> v1+v2);
+            }
 
             JavaRDD<String> mailFiles = XmlTransformer.getContentForTagInMessage(ds, "FilePath", null);
             mailFiles.filter(fn -> Files.exists(Paths.get(dirPath.getPath(), fn)))
@@ -84,7 +86,7 @@ public class MailAnalyzerApp {
             System.out.println("100%");
 
         }
-        printResults(startTime, totalWords, totalMails, counts);
+        printResults(startTime, totalWords, totalMails, allReceivers.takeOrdered(100, new TupleComparatorByVal()));
 
     }
 
