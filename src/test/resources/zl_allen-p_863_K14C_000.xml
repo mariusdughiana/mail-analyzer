@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Root MajorVersion="1" MinorVersion="0" CaseId="allen-p_863_K14C" Description="CaseUtil">
+	<Batch name=" Batch 1">
+		<Documents>
+			<Document DocID="3.818877.G3T4II30F0UK4YM4G2XQMIIKYS451SXUA" DocType="Message" MimeType="message/rfc822">
+				<Tags>
+					<Tag TagName="#From" TagDataType="Text" TagValue="Phillip K Allen"/>
+					<Tag TagName="#To" TagDataType="Text" TagValue="pallen70@hotmail.com"/>
+					<Tag TagName="#CC" TagDataType="Text" TagValue="pallen70@hotmail.com"/>
+					<Tag TagName="#Subject" TagDataType="Text" TagValue="Investment Structure"/>
+					<Tag TagName="#DateSent" TagDataType="DateTime" TagValue="2000-09-26T16:26:00.0+00:00"/>
+					<Tag TagName="#HasAttachments" TagDataType="Boolean" TagValue="true"/>
+					<Tag TagName="#AttachmentCount" TagDataType="Integer" TagValue="1"/>
+					<Tag TagName="#AttachmentNames" TagDataType="Text" TagValue="winmail.dat"/>
+					<Tag TagName="X-SDOC" TagDataType="Text" TagValue="948896"/>
+					<Tag TagName="X-ZLID" TagDataType="Text" TagValue="zl-edrm-enron-v2-allen-p-1713.eml"/>
+				</Tags>
+				<Files>
+					<File FileType="Native">
+						<ExternalFile FilePath="native_000" FileName="3.818877.G3T4II30F0UK4YM4G2XQMIIKYS451SXUA.eml" FileSize="18049" Hash="17DB013854094DE35F4B7EE727FB9F36"/>
+					</File>
+					<File FileType="Text">
+						<ExternalFile FilePath="text_000" FileName="3.818894.G0PM2HB5IBSYKFT1XHJ1FHAMRIBTEBWMB.txt" FileSize="9365" Hash="BD1A973FE36F9B8743AE98DD0971EFFC"/>
+					</File>
+				</Files>
+				<Locations>
+					<Location>
+						<Custodian>Phillip K Allen&lt;phillip.k.allen@enron.com&gt;</Custodian>
+						<LocationURI>allen-p\&apos;Sent Mail</LocationURI>
+					</Location>
+				</Locations>
+			</Document>
+
+
+			<Document DocID="3.824069.AXUT5DDC35BW0CN3OYDX5HCO0Z3DNELQB" DocType="Message" MimeType="message/rfc822">
+				<Tags>
+					<Tag TagName="#Subject" TagDataType="Text" TagValue="Do not delete Organizer note - Organizer Database Information"/>
+					<Tag TagName="#DateSent" TagDataType="DateTime" TagValue="1980-01-01T00:00:00.0+00:00"/>
+					<Tag TagName="#HasAttachments" TagDataType="Boolean" TagValue="false"/>
+					<Tag TagName="X-SDOC" TagDataType="Text" TagValue="950255"/>
+					<Tag TagName="X-ZLID" TagDataType="Text" TagValue="zl-edrm-enron-v2-allen-p-3021.eml"/>
+				</Tags>
+				<Files>
+					<File FileType="Native">
+						<ExternalFile FilePath="native_000" FileName="3.824069.AXUT5DDC35BW0CN3OYDX5HCO0Z3DNELQB.eml" FileSize="753" Hash="1DE50A8222F0B03B496E581E4F18CD64"/>
+					</File>
+					<File FileType="Text">
+						<ExternalFile FilePath="text_000" FileName="3.824069.AXUT5DDC35BW0CN3OYDX5HCO0Z3DNELQB.txt" FileSize="531" Hash="9713BEE46DB6345A88D0FE02615C77C0"/>
+					</File>
+				</Files>
+				<Locations>
+					<Location>
+						<Custodian>Phillip K Allen&lt;phillip.k.allen@enron.com&gt;</Custodian>
+						<LocationURI>allen-p\All documents</LocationURI>
+					</Location>
+				</Locations>
+			</Document>
+			<Document DocID="3.824070.MUCRTIGATEKE1YRC4VFOAWOXYOLUYHICA" DocType="Message" MimeType="message/rfc822">
+				<Tags>
+					<Tag TagName="#Subject" TagDataType="Text" TagValue="Do not delete Organizer note - Table &apos;__REPEAT&apos;"/>
+					<Tag TagName="#DateSent" TagDataType="DateTime" TagValue="1980-01-01T00:00:00.0+00:00"/>
+					<Tag TagName="#HasAttachments" TagDataType="Boolean" TagValue="false"/>
+					<Tag TagName="X-SDOC" TagDataType="Text" TagValue="950252"/>
+					<Tag TagName="X-ZLID" TagDataType="Text" TagValue="zl-edrm-enron-v2-allen-p-3018.eml"/>
+				</Tags>
+				<Files>
+					<File FileType="Native">
+						<ExternalFile FilePath="native_000" FileName="3.824070.MUCRTIGATEKE1YRC4VFOAWOXYOLUYHICA.eml" FileSize="739" Hash="E642652DE0EBC5A6C42BD862BD34C69B"/>
+					</File>
+					<File FileType="Text">
+						<ExternalFile FilePath="text_000" FileName="3.824070.MUCRTIGATEKE1YRC4VFOAWOXYOLUYHICA.txt" FileSize="517" Hash="5EAFF3C90D94B271D595F4C5ED3A4CEB"/>
+					</File>
+				</Files>
+				<Locations>
+					<Location>
+						<Custodian>Phillip K Allen&lt;phillip.k.allen@enron.com&gt;</Custodian>
+						<LocationURI>allen-p\All documents</LocationURI>
+					</Location>
+				</Locations>
+			</Document>
+			<Document DocID="3.824071.KUTHIRTYFDH3DUTSVJ14LWJTPMHZVMTTB" DocType="Message" MimeType="message/rfc822">
+				<Tags>
+					<Tag TagName="#Subject" TagDataType="Text" TagValue="Do not delete Organizer note - Table &apos;__SHOWTHRU&apos;"/>
+					<Tag TagName="#DateSent" TagDataType="DateTime" TagValue="1980-01-01T00:00:00.0+00:00"/>
+					<Tag TagName="#HasAttachments" TagDataType="Boolean" TagValue="false"/>
+					<Tag TagName="X-SDOC" TagDataType="Text" TagValue="950251"/>
+					<Tag TagName="X-ZLID" TagDataType="Text" TagValue="zl-edrm-enron-v2-allen-p-3017.eml"/>
+				</Tags>
+				<Files>
+					<File FileType="Native">
+						<ExternalFile FilePath="native_000" FileName="3.824071.KUTHIRTYFDH3DUTSVJ14LWJTPMHZVMTTB.eml" FileSize="741" Hash="392BAD045E3B3DDAF815E40538FC5BD4"/>
+					</File>
+					<File FileType="Text">
+						<ExternalFile FilePath="text_000" FileName="3.824071.KUTHIRTYFDH3DUTSVJ14LWJTPMHZVMTTB.txt" FileSize="519" Hash="BCEE917FB0E26D3946FEC14425891926"/>
+					</File>
+				</Files>
+				<Locations>
+					<Location>
+						<Custodian>Phillip K Allen&lt;phillip.k.allen@enron.com&gt;</Custodian>
+						<LocationURI>allen-p\All documents</LocationURI>
+					</Location>
+				</Locations>
+			</Document>
+			<Document DocID="3.824072.DLX5BRKHIAHWZSD5QYRIZOA31RSTGBYXA" DocType="Message" MimeType="message/rfc822">
+				<Tags>
+					<Tag TagName="#Subject" TagDataType="Text" TagValue="Do not delete Organizer note - Table &apos;__SECTIONS&apos;"/>
+					<Tag TagName="#DateSent" TagDataType="DateTime" TagValue="1980-01-01T00:00:00.0+00:00"/>
+					<Tag TagName="#HasAttachments" TagDataType="Boolean" TagValue="false"/>
+					<Tag TagName="X-SDOC" TagDataType="Text" TagValue="950250"/>
+					<Tag TagName="X-ZLID" TagDataType="Text" TagValue="zl-edrm-enron-v2-allen-p-3016.eml"/>
+				</Tags>
+				<Files>
+					<File FileType="Native">
+						<ExternalFile FilePath="native_000" FileName="3.824072.DLX5BRKHIAHWZSD5QYRIZOA31RSTGBYXA.eml" FileSize="741" Hash="A7DE9A9AAC23B5107BE30B2CCDB78E13"/>
+					</File>
+					<File FileType="Text">
+						<ExternalFile FilePath="text_000" FileName="3.824072.DLX5BRKHIAHWZSD5QYRIZOA31RSTGBYXA.txt" FileSize="519" Hash="E3534E42AA1C2F5B5A8F275626479909"/>
+					</File>
+				</Files>
+				<Locations>
+					<Location>
+						<Custodian>Phillip K Allen&lt;phillip.k.allen@enron.com&gt;</Custodian>
+						<LocationURI>allen-p\All documents</LocationURI>
+					</Location>
+				</Locations>
+			</Document>
+			<Document DocID="3.824073.KTYF3OV0B5W4SDJXPR1BD4RTENKLL5PMB" DocType="Message" MimeType="message/rfc822">
+				<Tags>
+					<Tag TagName="#Subject" TagDataType="Text" TagValue="Do not delete Organizer note - Table &apos;__FRONTCOVER__&apos;"/>
+					<Tag TagName="#DateSent" TagDataType="DateTime" TagValue="1980-01-01T00:00:00.0+00:00"/>
+					<Tag TagName="#HasAttachments" TagDataType="Boolean" TagValue="false"/>
+					<Tag TagName="X-SDOC" TagDataType="Text" TagValue="950248"/>
+					<Tag TagName="X-ZLID" TagDataType="Text" TagValue="zl-edrm-enron-v2-allen-p-3014.eml"/>
+				</Tags>
+				<Files>
+					<File FileType="Native">
+						<ExternalFile FilePath="native_000" FileName="3.824073.KTYF3OV0B5W4SDJXPR1BD4RTENKLL5PMB.eml" FileSize="745" Hash="908AEDAEA725F3098548C3CEE75B4E33"/>
+					</File>
+					<File FileType="Text">
+						<ExternalFile FilePath="text_000" FileName="3.824073.KTYF3OV0B5W4SDJXPR1BD4RTENKLL5PMB.txt" FileSize="523" Hash="60CFE844C7B3CD3E1831E1A299848DD8"/>
+					</File>
+				</Files>
+				<Locations>
+					<Location>
+						<Custodian>Phillip K Allen&lt;phillip.k.allen@enron.com&gt;</Custodian>
+						<LocationURI>allen-p\All documents</LocationURI>
+					</Location>
+				</Locations>
+			</Document>
+			<Document DocID="3.824074.F4Y5FYV2RNDLO3VHIJYN12DFDMCNCJMUA" DocType="Message" MimeType="message/rfc822">
+				<Tags>
+					<Tag TagName="#Subject" TagDataType="Text" TagValue="Do not delete Organizer note - record in special table &apos;__SECTIONS&apos;"/>
+					<Tag TagName="#DateSent" TagDataType="DateTime" TagValue="1980-01-01T00:00:00.0+00:00"/>
+					<Tag TagName="#HasAttachments" TagDataType="Boolean" TagValue="false"/>
+					<Tag TagName="X-SDOC" TagDataType="Text" TagValue="950249"/>
+					<Tag TagName="X-ZLID" TagDataType="Text" TagValue="zl-edrm-enron-v2-allen-p-3015.eml"/>
+				</Tags>
+				<Files>
+					<File FileType="Native">
+						<ExternalFile FilePath="native_000" FileName="3.824074.F4Y5FYV2RNDLO3VHIJYN12DFDMCNCJMUA.eml" FileSize="759" Hash="3A58333FB86BBFD3707DAC9DE19C099B"/>
+					</File>
+					<File FileType="Text">
+						<ExternalFile FilePath="text_000" FileName="3.824074.F4Y5FYV2RNDLO3VHIJYN12DFDMCNCJMUA.txt" FileSize="537" Hash="B7FBB44C942738A320D0D6FF632E4218"/>
+					</File>
+				</Files>
+				<Locations>
+					<Location>
+						<Custodian>Phillip K Allen&lt;phillip.k.allen@enron.com&gt;</Custodian>
+						<LocationURI>allen-p\All documents</LocationURI>
+					</Location>
+				</Locations>
+			</Document>
+			<Document DocID="3.824075.BRY1DLED0CERLI1G02VGBUDMSP05AA02A" DocType="Message" MimeType="message/rfc822">
+				<Tags>
+					<Tag TagName="#Subject" TagDataType="Text" TagValue="Do not delete Organizer note - Table &apos;CalendarOptions&apos;"/>
+					<Tag TagName="#DateSent" TagDataType="DateTime" TagValue="1980-01-01T00:00:00.0+00:00"/>
+					<Tag TagName="#HasAttachments" TagDataType="Boolean" TagValue="false"/>
+					<Tag TagName="X-SDOC" TagDataType="Text" TagValue="950247"/>
+					<Tag TagName="X-ZLID" TagDataType="Text" TagValue="zl-edrm-enron-v2-allen-p-3013.eml"/>
+				</Tags>
+				<Files>
+					<File FileType="Native">
+						<ExternalFile FilePath="native_000" FileName="3.824075.BRY1DLED0CERLI1G02VGBUDMSP05AA02A.eml" FileSize="746" Hash="D949FD269D822414838349972D3B507A"/>
+					</File>
+					<File FileType="Text">
+						<ExternalFile FilePath="text_000" FileName="3.824075.BRY1DLED0CERLI1G02VGBUDMSP05AA02A.txt" FileSize="524" Hash="FB3DD3A02D77E524B8ACC1F01E8AFA98"/>
+					</File>
+				</Files>
+				<Locations>
+					<Location>
+						<Custodian>Phillip K Allen&lt;phillip.k.allen@enron.com&gt;</Custodian>
+						<LocationURI>allen-p\All documents</LocationURI>
+					</Location>
+				</Locations>
+			</Document>
+			<Document DocID="3.824076.O1VTOAI3EAE4WN02UKUWOR1ZM4B5SXUMA" DocType="Message" MimeType="message/rfc822">
+				<Tags>
+					<Tag TagName="#Subject" TagDataType="Text" TagValue="Do not delete Organizer note - record in special table &apos;__SECTIONS&apos;"/>
+					<Tag TagName="#DateSent" TagDataType="DateTime" TagValue="1980-01-01T00:00:00.0+00:00"/>
+					<Tag TagName="#HasAttachments" TagDataType="Boolean" TagValue="false"/>
+					<Tag TagName="X-SDOC" TagDataType="Text" TagValue="950244"/>
+					<Tag TagName="X-ZLID" TagDataType="Text" TagValue="zl-edrm-enron-v2-allen-p-3010.eml"/>
+				</Tags>
+				<Files>
+					<File FileType="Native">
+						<ExternalFile FilePath="native_000" FileName="3.824076.O1VTOAI3EAE4WN02UKUWOR1ZM4B5SXUMA.eml" FileSize="759" Hash="B4E6F3F29ECD637C1C0BE563B353AB26"/>
+					</File>
+					<File FileType="Text">
+						<ExternalFile FilePath="text_000" FileName="3.824076.O1VTOAI3EAE4WN02UKUWOR1ZM4B5SXUMA.txt" FileSize="537" Hash="774E3352001BA39ECFD38C647588D28D"/>
+					</File>
+				</Files>
+				<Locations>
+					<Location>
+						<Custodian>Phillip K Allen&lt;phillip.k.allen@enron.com&gt;</Custodian>
+						<LocationURI>allen-p\All documents</LocationURI>
+					</Location>
+				</Locations>
+			</Document>
+		</Documents>
+	</Batch>
+</Root>
