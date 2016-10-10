@@ -17,11 +17,14 @@ import java.util.Set;
 public class XmlTransformer {
 
     public static String transformXml(JavaSparkContext sc, String filePath) {
+        String[] pathElem = filePath.split("/");
+        String newXmlFile = "new_" + pathElem[pathElem.length-1];
+
         JavaRDD<String> mailDetails = sc.textFile(filePath);
         mailDetails.map((Function<String, Object>) line -> XmlParser.parseLine(line))
                    .filter(line -> !line.equals(""))
-                   .saveAsTextFile("newxml.xml");
-        return "newxml.xml";
+                   .saveAsTextFile(newXmlFile);
+        return newXmlFile;
     }
 
     public static JavaPairRDD<String, Double> countMailReceivers(Dataset ds, String... tags) {

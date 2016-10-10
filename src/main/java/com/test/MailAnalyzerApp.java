@@ -26,7 +26,6 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class MailAnalyzerApp {
     public static void main(String[] args) throws IOException {
@@ -57,11 +56,14 @@ public class MailAnalyzerApp {
 
         JavaPairRDD<String, Double> allReceivers = null;
 
+        List<String> newXmls = new ArrayList<>();
+
         for (String fileName: dirPath.list(new SuffixFileFilter(".xml"))) {
 
             System.out.print("Processing file: " + fileName  + " ... ");
 
             String newXmlFile = XmlTransformer.transformXml(sc, dirPath + "/" + fileName);
+            newXmls.add(newXmlFile);
             SQLContext sqlContext = new SQLContext(sc);
 
             Dataset ds = sqlContext.read()
@@ -82,12 +84,22 @@ public class MailAnalyzerApp {
                 totalMails.$plus$eq(1);
                 totalWords.$plus$eq(MailParser.getMessageWordsNo(dirPath.getPath() +"/"+s));
             });
-            FileUtils.deleteDirectory(new File(newXmlFile));
             System.out.println("100%");
 
         }
         printResults(startTime, totalWords, totalMails, allReceivers.takeOrdered(100, new TupleComparatorByVal()));
 
+        deleteXmls(newXmls);
+    }
+
+    private static void deleteXmls(List<String> newXmls) {
+        newXmls.forEach(newXml -> {
+            try {
+                FileUtils.deleteDirectory(new File(newXml));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     private static void printResults(LocalDateTime startTime, Accumulator<Integer> totalWords, Accumulator<Integer>
