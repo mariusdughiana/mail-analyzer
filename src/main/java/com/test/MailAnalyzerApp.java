@@ -15,6 +15,7 @@ import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.VoidFunction;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.SQLContext;
+import scala.Tuple2;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,6 +24,9 @@ import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class MailAnalyzerApp {
     public static void main(String[] args) throws IOException {
@@ -48,6 +52,11 @@ public class MailAnalyzerApp {
         SparkConf conf = new SparkConf().setAppName("Mail Analyzer").setMaster("local");
         JavaSparkContext sc = new JavaSparkContext(conf);
 
+        Accumulator<Integer> totalWords = sc.accumulator(0);
+        Accumulator<Integer> totalMails = sc.accumulator(0);
+
+        List<Tuple2<String, Double>> counts = new ArrayList<>();
+
         for (String fileName: dirPath.list(new SuffixFileFilter(".xml"))) {
 
             String newXmlFile = XmlTransformer.transformXml(sc, dirPath + "/" + fileName);
@@ -57,40 +66,42 @@ public class MailAnalyzerApp {
                                    .format("com.databricks.spark.xml")
                                    .option("rowTag", "Document")
                                    .load(newXmlFile);
-            System.out.println("========================================================================================>");
-            System.out.println("Checking for first 100 mail receivers...");
-            System.out.println("========================================================================================>");
 
-            JavaPairRDD<String, Double> counts = XmlTransformer.countMailReceivers(ds);
-            counts.takeOrdered(100, new TupleComparatorByVal()).forEach(s -> System.out.println(s._1() + ": " + s._2()));
+            JavaPairRDD<String, Double> fileCounts = XmlTransformer.countMailReceivers(ds);
+            counts.addAll(fileCounts.takeOrdered(100, new TupleComparatorByVal()));
 
-            System.out.println("========================================================================================>");
-            System.out.println("Computing average words per message.........");
-            System.out.println("========================================================================================>");
+            counts = counts.stream().sorted(new TupleComparatorByVal()).limit(100).collect(Collectors.toList());
 
-            Accumulator<Integer> totalWords = sc.accumulator(0);
-            Accumulator<Integer> totalMails = sc.accumulator(0);
             JavaRDD<String> mailFiles = XmlTransformer.getContentForTagInMessage(ds, "FilePath", null);
             mailFiles.foreach((VoidFunction<String>) s -> {
                 totalMails.$plus$eq(1);
                 totalWords.$plus$eq(MailParser.getMessageWordsNo(dirPath.getPath() +"/"+s));
             });
-
-            System.out.println("Avg words per mail is: " + totalWords.value()/totalMails.value());
-
-            System.out.println("========================================================================================>");
-
-            LocalDateTime finishingTime = LocalDateTime.now();
-            System.out.println("Finishing time: " + finishingTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
-            System.out.println("Elapsed time: " + ChronoUnit.HOURS.between(startTime, finishingTime) + ":" + ChronoUnit.MINUTES.between(startTime, finishingTime) + ":" + ChronoUnit.SECONDS.between(startTime, finishingTime));
-            System.out.println("========================================================================================>");
-
             FileUtils.deleteDirectory(new File(newXmlFile));
-
-
         }
+        printResults(startTime, totalWords, totalMails, counts);
+
     }
 
+    private static void printResults(LocalDateTime startTime, Accumulator<Integer> totalWords, Accumulator<Integer>
+            totalMails, List<Tuple2<String, Double>> counts) {
+        System.out.println("========================================================================================>");
+        System.out.println("Checking for first 100 mail receivers...");
+        System.out.println("========================================================================================>");
 
+        counts.forEach(s -> System.out.println(s._1() + ": " + s._2()));
 
+        System.out.println("========================================================================================>");
+        System.out.println("Computing average words per message.........");
+        System.out.println("========================================================================================>");
+
+        System.out.println("Avg words per mail is: " + totalWords.value()/totalMails.value());
+
+        System.out.println("========================================================================================>");
+
+        LocalDateTime finishingTime = LocalDateTime.now();
+        System.out.println("Finishing time: " + finishingTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+        System.out.println("Elapsed time: " + ChronoUnit.HOURS.between(startTime, finishingTime) + ":" + ChronoUnit.MINUTES.between(startTime, finishingTime) + ":" + ChronoUnit.SECONDS.between(startTime, finishingTime));
+        System.out.println("========================================================================================>");
+    }
 }
