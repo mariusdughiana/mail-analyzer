@@ -59,7 +59,7 @@ public class MailAnalyzerApp {
 
         for (String fileName: dirPath.list(new SuffixFileFilter(".xml"))) {
 
-            System.out.print("Processing file: " + fileName  + " ... ");
+            System.out.println("Processing file: " + fileName  + " ... ");
 
             String newXmlFile = XmlTransformer.transformXml(sc, dirPath + "/" + fileName);
             SQLContext sqlContext = new SQLContext(sc);
