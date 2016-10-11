@@ -23,7 +23,7 @@
 - there is room for improvment on how the average words per mail is being computed as there are files which contain chain of emails, hence some email messages are duplicated and affects the overall average. Also to extract only the message from those text files is also a challenge, in terms of identifying all the possible patterns. 
 
 ### Running on EC2
-Running this app on my EC2 instance I manage to process all the emails in one minute plus something...
+Running this app on my EC2 instance I managed to process all the emails in one minute plus something...
 
 <img width="1920" alt="screen shot 2016-10-10 at 23 54 52" src="https://cloud.githubusercontent.com/assets/4759627/19265131/c6a81aea-8f9b-11e6-979e-f1807e2cc2be.png">
 
